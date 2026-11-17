@@ -69,8 +69,8 @@ export default function Home() {
     setRatings((prev) => ({ ...prev, [url]: rating }));
   };
 
-  const ratedCount = Object.keys(ratings).length;
   const totalCount = IMAGE_URLS.length;
+  const ratedCount = IMAGE_URLS.filter((url) => ratings[url] !== undefined).length;
   const progress = Math.round((ratedCount / totalCount) * 100);
 
   // Filter images based on selected filter
